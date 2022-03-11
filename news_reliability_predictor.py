@@ -74,6 +74,7 @@ with viz:
         import nltk
         from nltk.corpus import stopwords
         nltk.download('stopwords')
+        nltk.download('punkt')
 
 
         #creating a function which returns a list containing the top ngrams of each row
