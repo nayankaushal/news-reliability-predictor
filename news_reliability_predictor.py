@@ -75,7 +75,7 @@ with viz:
         from nltk.corpus import stopwords
         nltk.download('stopwords')
         nltk.download('punkt')
-
+        nltk.download('wordnet')
 
         #creating a function which returns a list containing the top ngrams of each row
         def top_ngrams(df, n, top):
