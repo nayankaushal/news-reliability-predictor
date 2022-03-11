@@ -36,6 +36,7 @@ with importing_pickle:
     from nltk.util import ngrams
     from nltk import word_tokenize
     from collections import Counter
+    import gzip
     
     def split_into_tokens(message):
         return TextBlob(message).words
@@ -46,7 +47,13 @@ with importing_pickle:
         # for each word, take its "base form" = lemma 
         return [word.lemma for word in words]
 
-    svm_detector_reloaded = cPickle.load(open('/Users/nayankaushal/Desktop/Projects/Misinformation/sms_news_reliability_detector.pkl', 'rb'))
+    def load_zipped_pickle(filename):
+        with gzip.open(filename, 'rb') as f:
+            loaded_object = cPickle.load(f)
+            return loaded_object
+
+    svm_detector_reloaded = load_zipped_pickle('/Users/nayankaushal/Desktop/Projects/Misinformation/news_reliability_detector.pkl')
+    #svm_detector_reloaded = cPickle.load(open('/Users/nayankaushal/Desktop/Projects/Misinformation/sms_news_reliability_detector.pkl', 'rb'))
 
     if txt:
         test = pd.DataFrame({'text': [txt]})
