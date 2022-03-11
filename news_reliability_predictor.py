@@ -37,6 +37,7 @@ with importing_pickle:
     from nltk import word_tokenize
     from collections import Counter
     import gzip
+    import pickle5 as p
     
     def split_into_tokens(message):
         return TextBlob(message).words
@@ -49,7 +50,7 @@ with importing_pickle:
 
     def load_zipped_pickle(filename):
         with gzip.open(filename, 'rb') as f:
-            loaded_object = cPickle.load(f)
+            loaded_object = p.load(f)
             return loaded_object
 
     svm_detector_reloaded = load_zipped_pickle('news_reliability_detector.pkl')
