@@ -52,7 +52,7 @@ with importing_pickle:
             loaded_object = cPickle.load(f)
             return loaded_object
 
-    svm_detector_reloaded = load_zipped_pickle('/Users/nayankaushal/Desktop/Projects/Misinformation/news_reliability_detector.pkl')
+    svm_detector_reloaded = load_zipped_pickle('news-reliability-predictor/news_reliability_detector.pkl')
     #svm_detector_reloaded = cPickle.load(open('/Users/nayankaushal/Desktop/Projects/Misinformation/sms_news_reliability_detector.pkl', 'rb'))
 
     if txt:
